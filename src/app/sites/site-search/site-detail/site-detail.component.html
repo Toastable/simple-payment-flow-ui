@@ -1,0 +1,73 @@
+<div class="row g-3" *ngIf="!pumpUnlocked">
+    <h3> Site Details - {{ siteDetail.name }} </h3>
+
+    <div class="col-sm-5 form-group">
+        <label for="name">Site Name</label>
+        <div class="form-control">
+            {{ siteDetail.name }}
+        </div>
+    </div>
+    <div class="col-sm-5 form-group">
+        <label for="address">Address</label>
+        <div class="form-control">
+            {{ siteDetail.address }}
+        </div>
+    </div>
+    <div class="col-sm-5 form-group">
+        <label for="opening-times">Opening Times</label>
+        <div class="form-control">
+            {{ siteDetail.openingTimes }}
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-xs-6">
+            <button
+                class="btn btn-success"
+                type="button"
+                (click)="onUnlockPumpBtnClick()">
+                Unlock Pump
+            </button>
+        </div>
+        <div class="col-xs-6">
+            <button
+                class="btn btn-success"
+                type="button"
+                (click)="onCloseDetailsBtnClick()">
+                Close Details
+            </button>
+        </div>
+    </div>
+</div>
+<div *ngIf="pumpUnlocked" class="row g-3">
+
+    <h3>Receipt Information at {{ siteDetail.name }} at {{ receipt.date }}</h3>
+
+    <div class="row g-3">
+        <div class="col-sm-5 form-group">
+            <label for="name">Amount </label>
+            <div class="form-control">
+                £ {{ receipt.amount }}
+            </div>
+        </div>
+    </div>
+    <div class="row g-3">
+        <div class="col-sm-5 form-group">
+            <label for="name">Date Issued </label>
+            <div class="form-control">
+                {{ receipt.date }}
+            </div>
+        </div>
+    </div>
+    
+    <div class="row g-3">
+        <div class="col-xs-6">
+            <button
+                class="btn btn-success"
+                type="button"
+                (click)="onDoneBtnClick()">
+                Done
+            </button>
+        </div>
+    </div>
+</div>
